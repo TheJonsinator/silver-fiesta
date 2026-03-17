@@ -1,4 +1,5 @@
 import './App.css';
+import Gameboard from "./Gameboard.jsx";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
         <p>
           GitHub Codespaces <span className="heart">♥️</span> React
         </p>
+        <Gameboard/>
+        
         <p className="small">
           Edit <code>src/App.jsx</code> and save to reload.
         </p>

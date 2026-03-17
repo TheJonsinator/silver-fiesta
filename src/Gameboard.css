@@ -1,0 +1,7 @@
+.Gameboard{
+    display: flex;
+    border: 5px solid;
+    border-color: green;
+    border-radius:10px;
+
+}

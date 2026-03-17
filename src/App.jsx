@@ -10,6 +10,9 @@ function App() {
           GitHub Codespaces <span className="heart">♥️</span> React
         </p>
         <Gameboard/>
+        <Gameboard/>
+        <Gameboard/>
+        <Gameboard/>
         
         <p className="small">
           Edit <code>src/App.jsx</code> and save to reload.

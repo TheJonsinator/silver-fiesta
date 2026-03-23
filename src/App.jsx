@@ -1,7 +1,12 @@
 import './App.css';
 import Gameboard from "./Gameboard.jsx";
-
+import { useState } from 'react';
 function App() {
+
+  const cardValues=[1,2,3,4,5];
+  const [correctAnswer,setCorrectAnswer]=useState([]);
+  const listOfGuesses=[1,2,3,4,5]
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,10 +14,18 @@ function App() {
         <p>
           GitHub Codespaces <span className="heart">♥️</span> React
         </p>
-        <Gameboard/>
-        <Gameboard/>
-        <Gameboard/>
-        <Gameboard/>
+        
+
+
+        {listOfGuesses.map(guess=>{
+           return <Gameboard cardValues={cardValues}/>
+        })}
+   
+
+
+
+
+
         
         <p className="small">
           Edit <code>src/App.jsx</code> and save to reload.

@@ -1,8 +1,9 @@
 .Gameboard{
     display: flex;
-    border: 5px solid;
+    border: 3px solid;
     border-color: green;
     border-radius:10px;
-    margin:10px;
+    margin:3px;
+    padding:0.5px;
 
 }

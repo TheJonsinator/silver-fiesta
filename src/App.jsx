@@ -10,7 +10,7 @@ function App() {
   const [correctAnswer,setCorrectAnswer]=useState(Math.floor(Math.random()*320));
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
   const [listOfGuesses,setListOfGuesses]=useState([])
-  
+  const [allSpellNames,setAllSpellNames]=useState([])
 
 
 
@@ -28,9 +28,22 @@ function App() {
 
   //Randomly Choses a number from between one and 320(the amount of spells are 319,I hardcoded this cause while I could you length of the resultList)
   console.log(correctAnswer)
-  console.log(spellNames.results[correctAnswer].index)    
-  //Læringsnotat, du kan ikke bruke useState inni en funksjon
-  //--------------------------------Sliter med å gjøre den under til en custom api get call, for sånn det er nå,
+  console.log(spellNames.results[correctAnswer].index)
+
+
+
+//Under her, tar jeg og lager en liste over alle navnene eller indexene som det heter her, som er det man må søke på
+//og som må passes ned.
+
+  const allIndexes=spellNames.results.map(result=>{
+    return result.index
+  })
+  
+  console.log(allIndexes)
+
+
+    
+
 
 
   return (
@@ -57,14 +70,8 @@ function App() {
           Edit <code>src/App.jsx</code> and save to reload.
         </p>
         <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          {correctAnswer}
+          {spellNames.results[correctAnswer].index}
         </p>
       </header>
     </div>

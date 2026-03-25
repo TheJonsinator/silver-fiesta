@@ -42,6 +42,13 @@ function App() {
   console.log(allIndexes)
 
 
+
+
+
+  function handleSearch(nameWithstrek)
+  {
+
+  }
     
 
 

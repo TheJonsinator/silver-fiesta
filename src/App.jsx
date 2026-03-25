@@ -7,7 +7,7 @@ import {useQuery} from "@tanstack/react-query";
 function App() {
   //All My Consts
   const cardValues=[1,2,3,4,5,6,7];
-  const [correctAnswer,setCorrectAnswer]=useState(Math.floor(Math.random()*320));
+  const correctAnswer=Math.floor(Math.random()*320);
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
   const [listOfGuesses,setListOfGuesses]=useState([])
   const [allSpellNames,setAllSpellNames]=useState([])
@@ -41,7 +41,25 @@ function App() {
   
   console.log(allIndexes)
 
+//NOTAT TIL SENERE, du må ikke gjøre en loop med useQuery inni, du må gjøre en useQuery, med en loop inni.
+/*const { isLoading: loadingDetails } = useQuery({
+    queryKey: ["allSpellDetails"],
+    queryFn: async () => {
+      if (!spellList) return [];
 
+      const results = await Promise.all(
+        spellList.results.map(spell =>
+          fetch(`https://www.dnd5eapi.co/api/2014/spells/${spell.index}`).then(res =>
+            res.json()
+          )
+        )
+      );
+       setAllSpells(results); // store all spell objects in state
+      return results;
+    },
+*/ //Her ser du,useQuery tar en funksjon(arrowfunc), som først sjekker at 
+//spellList eksisterer, så lager den en variabel som heter results, som er all dataen
+//så bruker den setAllSpells(results) og så returnerer den results.
 
 
 

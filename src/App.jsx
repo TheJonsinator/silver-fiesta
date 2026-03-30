@@ -1,8 +1,9 @@
 import './App.css';
 import get from "./fetcher";
 import Gameboard from "./Gameboard.jsx";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {useQuery} from "@tanstack/react-query";
+import ComponentTest from './QueryComponentTest';
 
 
 function App() {
@@ -10,30 +11,40 @@ function App() {
     const {data:spellNames,isLoading,error} = useQuery({
       queryKey:["spellNames"],
       queryFn:()=>get(""),});
-      if(isLoading) return <p>Loading...</p>
-      if(error) return <p>error</p> 
+    
 
   const cardValues=[1,2,3,4,5,6,7];
  
- const correctAnswer=Math.floor(Math.random()*spellNames.results.length);
+ const [correctAnswer,setCorrectAnswer]=useState(null);
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
   const [listOfGuesses,setListOfGuesses]=useState([])
   const [allSpellNames,setAllSpellNames]=useState([])
+// Må bruke useEffect, fordi correctAnswer er avhengig av at fetch requesten er ferdig, som er viktig
+  useEffect(()=>{
+    if(spellNames){
+      const randomIndex= Math.floor(Math.random()*spellNames.results.length);setCorrectAnswer(randomIndex);
+    }
+  },[spellNames]);
 
+
+
+    useEffect(()=>{
+      if(spellNames){
+        const allNames=spellNames.results.map(r=>r.index);
+        setAllSpellNames(allNames)
+      }
+    },[spellNames])
+
+    if(isLoading|| correctAnswer==null) return <p>Loading...</p>
+    if(error) return <p>error</p> 
+  
+
+  
   //Randomly Choses a number from between one and 320(the amount of spells are 319,I hardcoded this cause while I could you length of the resultList)
   console.log(correctAnswer)
   console.log(spellNames.results[correctAnswer].index)
+  console.log(allSpellNames)
 
-
-
-//Under her, tar jeg og lager en liste over alle navnene eller indexene som det heter her, som er det man må søke på
-//og som må passes ned.
-
-  const allIndexes=spellNames.results.map(result=>{
-    return result.index
-  })
-  
-  console.log(allIndexes)
 
 //NOTAT TIL SENERE, du må ikke gjøre en loop med useQuery inni, du må gjøre en useQuery, med en loop inni.
 /*const { isLoading: loadingDetails } = useQuery({
@@ -69,11 +80,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src="Octocat.png" className="App-logo" alt="logo" />
+        <ComponentTest indexName={correctAnswer}></ComponentTest>
         <p>
           GitHub Codespaces <span className="heart">♥️</span> React
         </p>
-        
-
 
         {listOfGuesses.map(guess=>{
            return <Gameboard cardValues={cardValues}/>

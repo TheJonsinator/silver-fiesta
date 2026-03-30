@@ -1,4 +1,5 @@
 import './App.css';
+import get from "./fetcher";
 import Gameboard from "./Gameboard.jsx";
 import { useState } from 'react';
 import {useQuery} from "@tanstack/react-query";
@@ -6,25 +7,18 @@ import {useQuery} from "@tanstack/react-query";
 
 function App() {
   //All My Consts
+    const {data:spellNames,isLoading,error} = useQuery({
+      queryKey:["spellNames"],
+      queryFn:()=>get(""),});
+      if(isLoading) return <p>Loading...</p>
+      if(error) return <p>error</p> 
+
   const cardValues=[1,2,3,4,5,6,7];
-  const correctAnswer=Math.floor(Math.random()*320);
+ 
+ const correctAnswer=Math.floor(Math.random()*spellNames.results.length);
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
   const [listOfGuesses,setListOfGuesses]=useState([])
   const [allSpellNames,setAllSpellNames]=useState([])
-
-
-
-   
-
-
-  //This entire thing, is just to get the query with the insex and names, but I imagine that after I get it 1 time, I dont need to load it more
-  const {isPending,error,data:spellNames} = useQuery({
-      queryKey:["spellNames"],
-      queryFn:()=>
-        fetch("https://www.dnd5eapi.co/api/2014/spells/").then((res)=>res.json(),),
-    })
-    if(isPending) return 'Loading'
-    if(error) return "an error occured:"+error.message
 
   //Randomly Choses a number from between one and 320(the amount of spells are 319,I hardcoded this cause while I could you length of the resultList)
   console.log(correctAnswer)

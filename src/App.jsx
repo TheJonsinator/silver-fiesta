@@ -13,19 +13,18 @@ function App() {
       queryFn:()=>get(""),});
     
 
-  const cardValues=[1,2,3,4,5,6,7];
  
  const [correctAnswer,setCorrectAnswer]=useState(null);
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
-  const [listOfGuesses,setListOfGuesses]=useState([])
+  const [listOfGuesses,setListOfGuesses]=useState([1,2,3])
   const [allSpellNames,setAllSpellNames]=useState([])
 // Må bruke useEffect, fordi correctAnswer er avhengig av at fetch requesten er ferdig, som er viktig
   useEffect(()=>{
     if(spellNames){
-      const randomIndex= Math.floor(Math.random()*spellNames.results.length);setCorrectAnswer(randomIndex);
+      const randomIndex= 202 /*Math.floor(Math.random()*spellNames.results.length)*/;setCorrectAnswer(randomIndex);
     }
   },[spellNames]);
-
+//HUSK Å ENDRE RANDOM INDEX TILBAKE TIL NOE TILFELDIG
 
 
     useEffect(()=>{
@@ -41,9 +40,58 @@ function App() {
 
   
   //Randomly Choses a number from between one and 320(the amount of spells are 319,I hardcoded this cause while I could you length of the resultList)
-  console.log(correctAnswer)
-  console.log(spellNames.results[correctAnswer].index)
+ /* console.log(correctAnswer)
+  
   console.log(allSpellNames)
+*/
+
+ console.log(spellNames.results[correctAnswer].index)
+
+
+  function handleSearch(nameWithstrek)
+  {
+
+  }
+    
+
+
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src="Octocat.png" className="App-logo" alt="logo" />
+      
+        <p>
+          GitHub Codespaces <span className="heart">♥️</span> React
+        </p>
+
+        {listOfGuesses.map(guess=>{
+           return <Gameboard indexName={allSpellNames[correctAnswer]}/>
+        })}
+   
+
+
+
+
+
+        
+        <p className="small">
+          Edit <code>src/App.jsx</code> and save to reload.
+        </p>
+        <p>
+          {correctAnswer}
+          {spellNames.results[correctAnswer].index}
+        </p>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
 
 
 //NOTAT TIL SENERE, du må ikke gjøre en loop med useQuery inni, du må gjøre en useQuery, med en loop inni.
@@ -66,45 +114,3 @@ function App() {
 //spellList eksisterer, så lager den en variabel som heter results, som er all dataen
 //så bruker den setAllSpells(results) og så returnerer den results.
 
-
-
-  function handleSearch(nameWithstrek)
-  {
-
-  }
-    
-
-
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <ComponentTest indexName={correctAnswer}></ComponentTest>
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-
-        {listOfGuesses.map(guess=>{
-           return <Gameboard cardValues={cardValues}/>
-        })}
-   
-
-
-
-
-
-        
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          {correctAnswer}
-          {spellNames.results[correctAnswer].index}
-        </p>
-      </header>
-    </div>
-  );
-}
-
-export default App;

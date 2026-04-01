@@ -13,6 +13,7 @@ export default function GameBoard({indexName}){
        
         const [wantedCardValues,setWantedCardValues]=useState([]);
         const [classValues,setClassValues]=useState([]);
+        const [vsmComponents,setVSMComponents]=useState([]);
         console.log(indexName)
         console.log(spellData)
     
@@ -31,11 +32,18 @@ export default function GameBoard({indexName}){
             }
         },[spellData]);
 
-
+        //Here it can be multiple, 
         useEffect(()=>{
             if (spellData&& wantedCardValues[4]){
                 const values=wantedCardValues[4].map(spellClass=>`${spellClass.index} `);
                 setClassValues(values);
+            }
+                } ,[spellData,wantedCardValues]);
+        //Here it can be multiple components, verbal, sematic, material
+        useEffect(()=>{
+            if (spellData&& wantedCardValues[5]){
+                const values=wantedCardValues[5].map(components=>`${components} `);
+                setVSMComponents(values);
             }
                 } ,[spellData,wantedCardValues]);
          
@@ -64,7 +72,7 @@ export default function GameBoard({indexName}){
                    <GameCard cardValue={wantedCardValues[3]?.damage_at_slot_level?.[`${wantedCardValues[1]}`]}></GameCard>
                    <GameCard cardValue={wantedCardValues[3]?.damage_type?.name}></GameCard>
                    <GameCard cardValue={classValues}></GameCard>
-                   <GameCard cardValue={wantedCardValues[5]?.join(",")}></GameCard>
+                   <GameCard cardValue={vsmComponents}></GameCard>
                     
 
                  

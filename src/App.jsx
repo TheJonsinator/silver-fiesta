@@ -21,7 +21,7 @@ function App() {
 // Må bruke useEffect, fordi correctAnswer er avhengig av at fetch requesten er ferdig, som er viktig
   useEffect(()=>{
     if(spellNames){
-      const randomIndex= 168 /*Math.floor(Math.random()*spellNames.results.length)*/;setCorrectAnswer(randomIndex);
+      const randomIndex=115 /*Math.floor(Math.random()*spellNames.results.length)*/;setCorrectAnswer(randomIndex);
     }
   },[spellNames]);
 //HUSK Å ENDRE RANDOM INDEX TILBAKE TIL NOE TILFELDIG
@@ -45,7 +45,7 @@ function App() {
   console.log(allSpellNames)
 */
 
- console.log(spellNames.results[correctAnswer].index)
+console.log(spellNames.results[correctAnswer].index)
 
 
   function handleSearch(nameWithstrek)

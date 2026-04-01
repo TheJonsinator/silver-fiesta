@@ -21,7 +21,7 @@ function App() {
 // Må bruke useEffect, fordi correctAnswer er avhengig av at fetch requesten er ferdig, som er viktig
   useEffect(()=>{
     if(spellNames){
-      const randomIndex= 202 /*Math.floor(Math.random()*spellNames.results.length)*/;setCorrectAnswer(randomIndex);
+      const randomIndex= 168 /*Math.floor(Math.random()*spellNames.results.length)*/;setCorrectAnswer(randomIndex);
     }
   },[spellNames]);
 //HUSK Å ENDRE RANDOM INDEX TILBAKE TIL NOE TILFELDIG

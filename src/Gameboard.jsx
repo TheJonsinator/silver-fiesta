@@ -75,6 +75,7 @@ export default function GameBoard({indexName}){
                    <GameCard cardValue={wantedCardValues.damage?.damage_type?.index??"No Damage Type"}></GameCard>
                    <GameCard cardValue={classValues}></GameCard>
                    <GameCard cardValue={vsmComponents}></GameCard>
+                   <GameCard cardValue={wantedCardValues?.school.index}></GameCard>
                   
                 
                     

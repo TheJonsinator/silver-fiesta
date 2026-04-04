@@ -14,8 +14,10 @@ export default function GameBoard({indexName}){
         const [wantedCardValues,setWantedCardValues]=useState({});
         const [classValues,setClassValues]=useState([]);
         const [vsmComponents,setVSMComponents]=useState([]);
+        const [school,setSchool]=useState("");
        // console.log(indexName)
         console.log(spellData)
+       
     
     
     
@@ -45,12 +47,21 @@ export default function GameBoard({indexName}){
         useEffect(()=>{
             if (spellData&& wantedCardValues?.components){
                 const values=wantedCardValues.components.map(components=>`${components}, `);
-                console.log(values)
+
                 setVSMComponents(values);
                 
             }
                 } ,[spellData,wantedCardValues]);
          
+
+        //
+        useEffect(()=>{
+           if (spellData   && wantedCardValues?.school){
+                const values= wantedCardValues?.school;
+                setSchool(values);
+
+            }
+        }, [spellData,wantedCardValues]);
       
 
     
@@ -62,9 +73,8 @@ export default function GameBoard({indexName}){
       
         
       
+  
 
-
-   
     return(<>
     <div className="Gameboard">
       
@@ -75,7 +85,7 @@ export default function GameBoard({indexName}){
                    <GameCard cardValue={wantedCardValues.damage?.damage_type?.index??"No Damage Type"}></GameCard>
                    <GameCard cardValue={classValues}></GameCard>
                    <GameCard cardValue={vsmComponents}></GameCard>
-                   <GameCard cardValue={wantedCardValues?.school.index}></GameCard>
+                   <GameCard cardValue={wantedCardValues?.school?.index}></GameCard>
                   
                 
                     

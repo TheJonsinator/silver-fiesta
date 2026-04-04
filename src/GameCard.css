@@ -24,6 +24,6 @@ p{
     height:100%;
     word-wrap:break-word;
     overflow-wrap:break-word;
-    font-size: clamp(10px,2vw,20px);
+    font-size: clamp(10px,2vw,15px);
 
 }

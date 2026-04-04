@@ -15,7 +15,7 @@ export default function GameBoard({indexName}){
         const [classValues,setClassValues]=useState([]);
         const [vsmComponents,setVSMComponents]=useState([]);
        // console.log(indexName)
-         console.log(spellData)
+        console.log(spellData)
     
     
     
@@ -29,6 +29,7 @@ export default function GameBoard({indexName}){
                     }
                 });
                 setWantedCardValues(values)
+            
             }
         },[spellData]);
 
@@ -68,8 +69,8 @@ export default function GameBoard({indexName}){
                    <GameCard cardValue={wantedCardValues.casting_time}></GameCard>
                     <GameCard cardValue={wantedCardValues.level}></GameCard>
                    <GameCard cardValue={wantedCardValues.range}></GameCard>
-                   <GameCard cardValue={wantedCardValues.damage?.damage_at_character_level?.[1]}></GameCard>
-                   <GameCard cardValue={wantedCardValues.damage?.damage_type?.index}></GameCard>
+                   <GameCard cardValue={wantedCardValues.damage?.damage_at_character_level?.[1]??wantedCardValues.damage?.damage_at_slot_level?.[wantedCardValues?.level]??"No Damage"}></GameCard>
+                   <GameCard cardValue={wantedCardValues.damage?.damage_type?.index??"No Damage Type"}></GameCard>
                    <GameCard cardValue={classValues}></GameCard>
                    <GameCard cardValue={vsmComponents}></GameCard>
                   

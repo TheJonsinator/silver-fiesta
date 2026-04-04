@@ -16,12 +16,12 @@ function App() {
  
  const [correctAnswer,setCorrectAnswer]=useState(null);
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
-  const [listOfGuesses,setListOfGuesses]=useState([1,2,3])
+  const [listOfGuesses,setListOfGuesses]=useState([1])
   const [allSpellNames,setAllSpellNames]=useState([])
 // Må bruke useEffect, fordi correctAnswer er avhengig av at fetch requesten er ferdig, som er viktig
   useEffect(()=>{
     if(spellNames){
-      const randomIndex=115 /*Math.floor(Math.random()*spellNames.results.length)*/;setCorrectAnswer(randomIndex);
+      const randomIndex=113 /*Math.floor(Math.random()*spellNames.results.length)*/;setCorrectAnswer(randomIndex);
     }
   },[spellNames]);
 //HUSK Å ENDRE RANDOM INDEX TILBAKE TIL NOE TILFELDIG
@@ -48,10 +48,6 @@ function App() {
 console.log(spellNames.results[correctAnswer].index)
 
 
-  function handleSearch(nameWithstrek)
-  {
-
-  }
     
 
 
@@ -59,11 +55,7 @@ console.log(spellNames.results[correctAnswer].index)
   return (
     <div className="App">
       <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-      
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
+        
 
         {listOfGuesses.map(guess=>{
            return <Gameboard indexName={allSpellNames[correctAnswer]}/>

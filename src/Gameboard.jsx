@@ -36,7 +36,8 @@ export default function GameBoard({indexName}){
         //Here it can be multiple, 
         useEffect(()=>{
             if (spellData&& wantedCardValues[4]){
-                const values=wantedCardValues[4].map(spellClass=>`${spellClass.index} `);
+                const values=wantedCardValues[4].map(spellClass=>{spellClass.index} );
+                console.log(values)
                 setClassValues(values);
             }
                 } ,[spellData,wantedCardValues]);
@@ -56,7 +57,7 @@ export default function GameBoard({indexName}){
         if(error) return <p>error</p> 
 
 
-       // console.log(wantedCardValues)
+        console.log(classValues)
         
         
       

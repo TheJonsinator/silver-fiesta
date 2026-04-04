@@ -35,17 +35,19 @@ export default function GameBoard({indexName}){
 
         //Here it can be multiple, 
         useEffect(()=>{
-            if (spellData&& wantedCardValues[4]){
-                const values=wantedCardValues[4].map(spellClass=>{spellClass.index} );
-                console.log(values)
+            if (spellData&& wantedCardValues?.classes){
+                //Learning note, I had syntax trouble here, cause I did not include return when putting brackets around my map arrow function, since its on the same line I could just not include the brackets.
+                const values=wantedCardValues.classes.map(spellClass=> { return `${spellClass.index} ` } );
                 setClassValues(values);
             }
                 } ,[spellData,wantedCardValues]);
         //Here it can be multiple components, verbal, sematic, material
         useEffect(()=>{
-            if (spellData&& wantedCardValues[5]){
-                const values=wantedCardValues[5].map(components=>`${components} `);
+            if (spellData&& wantedCardValues?.components){
+                const values=wantedCardValues.components.map(components=>`${components}, `);
+                console.log(values)
                 setVSMComponents(values);
+                
             }
                 } ,[spellData,wantedCardValues]);
          
@@ -57,13 +59,12 @@ export default function GameBoard({indexName}){
         if(error) return <p>error</p> 
 
 
-        console.log(classValues)
-        
+      
         
       
 
 
-
+   
     return(<>
     <div className="Gameboard">
       

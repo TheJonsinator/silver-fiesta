@@ -4,7 +4,7 @@ import get from "./fetcher";
 import GameCard from "./GameCard";
 import {useQuery} from "@tanstack/react-query";
 
-export default function GameBoard({indexName}){
+export default function GameBoard({indexName,correctAnswerName}){
 
     const {data:spellData,isLoading,error} = useQuery({
           queryKey:["spellData"],
@@ -17,7 +17,8 @@ export default function GameBoard({indexName}){
         const [school,setSchool]=useState("");
        // console.log(indexName)
         console.log(spellData)
-       
+     
+
     
     
     
@@ -77,9 +78,9 @@ export default function GameBoard({indexName}){
 
     return(<>
     <div className="Gameboard">
-      
+                   <h1>{correctAnswerName}</h1>
                    <GameCard cardValue={wantedCardValues.casting_time}></GameCard>
-                    <GameCard cardValue={wantedCardValues.level}></GameCard>
+                    <GameCard cardValue={`Level ${wantedCardValues.level}`}></GameCard>
                    <GameCard cardValue={wantedCardValues.range}></GameCard>
                    <GameCard cardValue={wantedCardValues.damage?.damage_at_character_level?.[1]??wantedCardValues.damage?.damage_at_slot_level?.[wantedCardValues?.level]??"No Damage"}></GameCard>
                    <GameCard cardValue={wantedCardValues.damage?.damage_type?.index??"No Damage Type"}></GameCard>

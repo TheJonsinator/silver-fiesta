@@ -4,7 +4,7 @@ import get from "./fetcher";
 import GameCard from "./GameCard";
 import {useQuery} from "@tanstack/react-query";
 
-export default function GameBoard({indexName,correctAnswerName}){
+export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
     const {data:spellData,isLoading,error} = useQuery({
           queryKey:["spellData"],
@@ -22,7 +22,7 @@ export default function GameBoard({indexName,correctAnswerName}){
         const [school,setSchool]=useState("");
        // console.log(indexName)
         console.log(spellData)
-     
+        console.log(listOfAllNames)
 
     
     

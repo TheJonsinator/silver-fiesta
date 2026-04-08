@@ -58,7 +58,7 @@ console.log(spellNames.results[correctAnswer].index)
         
 
         {listOfGuesses.map(guess=>{
-           return <Gameboard indexName={allSpellNames[correctAnswer]} correctAnswerName={allSpellNames[correctAnswer]}/>
+           return <Gameboard indexName={allSpellNames[correctAnswer]} correctAnswerName={allSpellNames[correctAnswer]} listOfAllNames={allSpellNames}/>
         })}
    
 

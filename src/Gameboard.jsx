@@ -9,6 +9,11 @@ export default function GameBoard({indexName,correctAnswerName}){
     const {data:spellData,isLoading,error} = useQuery({
           queryKey:["spellData"],
           queryFn:()=>get(indexName),});
+    
+    /*const {data:correctAnswerData,isLoading1,error2}= userQuery({
+        queryKey:["correctAnswerData"],
+        queryFn:()=> get(correctAnswerName),
+    });*/
        
        
         const [wantedCardValues,setWantedCardValues]=useState({});
@@ -77,8 +82,9 @@ export default function GameBoard({indexName,correctAnswerName}){
   
 
     return(<>
+    <h1>{correctAnswerName}</h1>
     <div className="Gameboard">
-                   <h1>{correctAnswerName}</h1>
+                   
                    <GameCard cardValue={wantedCardValues.casting_time}></GameCard>
                     <GameCard cardValue={`Level ${wantedCardValues.level}`}></GameCard>
                    <GameCard cardValue={wantedCardValues.range}></GameCard>

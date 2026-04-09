@@ -75,7 +75,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         if(isLoading) return <p>Loading...</p>
         if(error) return <p>error</p> 
 
-
+//WARNING. I DO BELIEVE THAT ALL OF THESE VALUES SHOULD BE PASSED DOWN INSTEAD OF BEING CALCULATED HERE
       
         
       

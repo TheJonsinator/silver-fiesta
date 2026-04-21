@@ -4,6 +4,7 @@ import Gameboard from "./Gameboard.jsx";
 import { useEffect, useState } from 'react';
 import {useQuery} from "@tanstack/react-query";
 import ComponentTest from './QueryComponentTest';
+import SearchBar from "./SearchBar"
 
 
 function App() {
@@ -55,6 +56,7 @@ console.log(spellNames.results[correctAnswer].index)
   return (
     <div className="App">
       <header className="App-header">
+        <SearchBar></SearchBar>
         
 
         {listOfGuesses.map(guess=>{

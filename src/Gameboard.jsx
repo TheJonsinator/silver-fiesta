@@ -60,14 +60,14 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
                 } ,[spellData,wantedCardValues]);
          
 
-        //
+        /*
         useEffect(()=>{
            if (spellData   && wantedCardValues?.school){
                 const values= wantedCardValues?.school;
                 setSchool(values);
 
             }
-        }, [spellData,wantedCardValues]);
+        }, [spellData,wantedCardValues]);  I dont think this is actually neeeded, I might be wrong */
       
 
     
@@ -76,8 +76,11 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         if(error) return <p>error</p> 
 
 //WARNING. I DO BELIEVE THAT ALL OF THESE VALUES SHOULD BE PASSED DOWN INSTEAD OF BEING CALCULATED HERE
-      
-        
+      const castingTime=wantedCardValues.casting_time;
+      const level=wantedCardValues.level;
+      const range=wantedCardValues.range;  
+      const damage= wantedCardValues.damage?.damage_at_character_level?.[1]??wantedCardValues.damage?.damage_at_slot_level?.[wantedCardValues?.level]??"No Damage";
+      const damageType=wantedCardValues.damage?.damage_type?.index??"No Damage Type";
       
   
 
@@ -85,11 +88,11 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     <p>Riktig Svar {correctAnswerName} Søkte {indexName}</p>
     <div className="Gameboard">
                    
-                   <GameCard cardValue={wantedCardValues.casting_time}></GameCard>
-                    <GameCard cardValue={`Level ${wantedCardValues.level}`}></GameCard>
-                   <GameCard cardValue={wantedCardValues.range}></GameCard>
-                   <GameCard cardValue={wantedCardValues.damage?.damage_at_character_level?.[1]??wantedCardValues.damage?.damage_at_slot_level?.[wantedCardValues?.level]??"No Damage"}></GameCard>
-                   <GameCard cardValue={wantedCardValues.damage?.damage_type?.index??"No Damage Type"}></GameCard>
+                   <GameCard cardValue={castingTime}></GameCard>
+                    <GameCard cardValue={`Level ${level}`}></GameCard>
+                   <GameCard cardValue={range}></GameCard>
+                   <GameCard cardValue={damage}></GameCard>
+                   <GameCard cardValue={damageType}></GameCard>
                    <GameCard cardValue={classValues}></GameCard>
                    <GameCard cardValue={vsmComponents}></GameCard>
                    <GameCard cardValue={wantedCardValues?.school?.index}></GameCard>

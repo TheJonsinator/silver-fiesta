@@ -82,7 +82,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
   
 
     return(<>
-    <h2>Riktig Svar {correctAnswerName} Søkte {indexName}</h2>
+    <p>Riktig Svar {correctAnswerName} Søkte {indexName}</p>
     <div className="Gameboard">
                    
                    <GameCard cardValue={wantedCardValues.casting_time}></GameCard>

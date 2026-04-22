@@ -55,7 +55,7 @@ function handleSearch(e){
   const spellName = data.get("spellName").toLowerCase().split(" ").join("-");
   setActiveSearch(spellName)
   if(allSpellNames.includes(spellName)){
-    setListOfGuesses(prevList=>[...prevList,spellName])
+    setListOfGuesses(prevList=>[spellName, ...prevList])
   }
   console.log(spellName)
   console.log(listOfGuesses)

@@ -1,10 +1,10 @@
 import "./SearchBar.css"
 
-export default function SearchBar(){
+export default function SearchBar({submitFunction}){
     return <>
-    <form>
+    <form onSubmit={submitFunction}>
         <label for="spellname">SpellName</label><br></br>
-        <input type="text" id="spellname"/>
+        <input type="text" name= "spellName" id="spellname"/>
     </form>
     
     </>

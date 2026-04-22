@@ -14,7 +14,7 @@ function App() {
       queryFn:()=>get(""),});
     
 
- 
+ const [activeSearch,setActiveSearch]=useState("");
  const [correctAnswer,setCorrectAnswer]=useState(null);
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
   const [listOfGuesses,setListOfGuesses]=useState([1])
@@ -49,6 +49,14 @@ function App() {
 console.log(spellNames.results[correctAnswer].index)
 
 
+function handleSearch(e){
+  e.preventDefault();
+  const data= new FormData(e.target);
+  const spellName = data.get("spellName");
+  setActiveSearch(spellName)
+  console.log(spellName)
+
+}
     
 
 
@@ -56,8 +64,8 @@ console.log(spellNames.results[correctAnswer].index)
   return (
     <div className="App">
       <header className="App-header">
-        <SearchBar></SearchBar>
-        
+        <SearchBar submitFunction={handleSearch}></SearchBar>
+        <h2>{activeSearch}</h2>
 
         {listOfGuesses.map(guess=>{
            return <Gameboard indexName={allSpellNames[correctAnswer]} correctAnswerName={allSpellNames[correctAnswer]} listOfAllNames={allSpellNames}/>

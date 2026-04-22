@@ -7,7 +7,7 @@ import {useQuery} from "@tanstack/react-query";
 export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
     const {data:spellData,isLoading,error} = useQuery({
-          queryKey:["spellData"],
+          queryKey:["spellData",indexName],
           queryFn:()=>get(indexName),});
     
     /*const {data:correctAnswerData,isLoading1,error2}= userQuery({

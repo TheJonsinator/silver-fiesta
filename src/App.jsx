@@ -69,10 +69,10 @@ function handleSearch(e){
     <div className="App">
       <header className="App-header">
         <SearchBar submitFunction={handleSearch}></SearchBar>
-        <h2>{activeSearch}</h2>
+    
 
-        {listOfGuesses.map(guess=>{
-           return <Gameboard indexName={guess} correctAnswerName={allSpellNames[correctAnswer]} listOfAllNames={allSpellNames}/>
+        {listOfGuesses.map((guess,index)=>{
+           return <Gameboard key={`${guess}-${index}`} indexName={guess} correctAnswerName={allSpellNames[correctAnswer]} listOfAllNames={allSpellNames}/>
         })}
    
 

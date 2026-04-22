@@ -17,7 +17,7 @@ function App() {
  const [activeSearch,setActiveSearch]=useState("");
  const [correctAnswer,setCorrectAnswer]=useState(null);
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
-  const [listOfGuesses,setListOfGuesses]=useState([1])
+  const [listOfGuesses,setListOfGuesses]=useState([])
   const [allSpellNames,setAllSpellNames]=useState([])
 // Må bruke useEffect, fordi correctAnswer er avhengig av at fetch requesten er ferdig, som er viktig
   useEffect(()=>{
@@ -54,7 +54,11 @@ function handleSearch(e){
   const data= new FormData(e.target);
   const spellName = data.get("spellName").toLowerCase().split(" ").join("-");
   setActiveSearch(spellName)
+  if(allSpellNames.includes(spellName)){
+    setListOfGuesses(prevList=>[...prevList,spellName])
+  }
   console.log(spellName)
+  console.log(listOfGuesses)
 
 }
     
@@ -68,7 +72,7 @@ function handleSearch(e){
         <h2>{activeSearch}</h2>
 
         {listOfGuesses.map(guess=>{
-           return <Gameboard indexName={allSpellNames[correctAnswer]} correctAnswerName={allSpellNames[correctAnswer]} listOfAllNames={allSpellNames}/>
+           return <Gameboard indexName={guess} correctAnswerName={allSpellNames[correctAnswer]} listOfAllNames={allSpellNames}/>
         })}
    
 

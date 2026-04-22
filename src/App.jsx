@@ -52,7 +52,7 @@ console.log(spellNames.results[correctAnswer].index)
 function handleSearch(e){
   e.preventDefault();
   const data= new FormData(e.target);
-  const spellName = data.get("spellName");
+  const spellName = data.get("spellName").toLowerCase().split(" ").join("-");
   setActiveSearch(spellName)
   console.log(spellName)
 

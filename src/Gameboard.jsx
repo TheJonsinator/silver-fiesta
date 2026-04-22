@@ -21,8 +21,8 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [vsmComponents,setVSMComponents]=useState([]);
         const [school,setSchool]=useState("");
        // console.log(indexName)
-        console.log(spellData)
-        console.log(listOfAllNames)
+        console.log("DATAEN TIL VALGT SPELL",spellData)
+        console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
 
     
     

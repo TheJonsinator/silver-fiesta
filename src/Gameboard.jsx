@@ -84,6 +84,10 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
       
   
 
+      function compareSpellToAnswer(chosenSpell,answerSpell){
+
+      }
+
     return(<>
     <p>Riktig Svar {correctAnswerName} Søkte {indexName}</p>
     <div className="Gameboard">

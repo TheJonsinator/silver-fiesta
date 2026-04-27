@@ -9,11 +9,13 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     const {data:spellData,isLoading,error} = useQuery({
           queryKey:["spellData",indexName],
           queryFn:()=>get(indexName),});
+
+   
     
-    /*const {data:correctAnswerData,isLoading1,error2}= userQuery({
-        queryKey:["correctAnswerData"],
+    const {data:correctAnswerData,isLoading:isLoading1,error:error1}= useQuery({
+        queryKey:["correctAnswerData", correctAnswerName],
         queryFn:()=> get(correctAnswerName),
-    });*/
+    });
        
        
         const [wantedCardValues,setWantedCardValues]=useState({});
@@ -21,8 +23,9 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [vsmComponents,setVSMComponents]=useState([]);
         const [school,setSchool]=useState("");
        // console.log(indexName)
-        console.log("DATAEN TIL VALGT SPELL",spellData)
-        console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
+        //console.log("DATAEN TIL VALGT SPELL",spellData)
+       // console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
+        console.log("CORRECTANSWERDATA",correctAnswerData)
 
     
     
@@ -49,6 +52,11 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
                 setClassValues(values);
             }
                 } ,[spellData,wantedCardValues]);
+
+
+
+
+
         //Here it can be multiple components, verbal, sematic, material
         useEffect(()=>{
             if (spellData&& wantedCardValues?.components){

@@ -84,7 +84,43 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
       
   
 
+
+
+      //JS Object Spell structure example
+      /* {
+      name:spellName,
+      castingTime:castingTime,
+      level:level,
+      range:range,
+      damage:damage,
+      damageType:damageType,
+      class:class,
+      vsm:vsm,
+      school:school
+      }
+      
+      */
+     function compareValues(a,b){
+        if(a==b){
+            return "Identical"
+        
+
+        }
+        else if(a!=b && b.includes(a) ){
+            return "Partial"
+        
+        }
+        else{
+            return "Nothing in Common"
+        }
+     } 
       function compareSpellToAnswer(chosenSpell,answerSpell){
+        let dictionaryOfResults={};
+        Object.keys(chosenSpell).forEach(key=>{
+            dictionaryOfResults[key]=compareValues(chosenSpell[key],answerSpell[key])
+
+        })
+        return dictionaryOfResults;
 
       }
 

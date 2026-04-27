@@ -22,15 +22,20 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [classValues,setClassValues]=useState([]);
         const [vsmComponents,setVSMComponents]=useState([]);
         const [school,setSchool]=useState("");
+        const [correcAnswerValues,setCorrectAnswerValues]=useState({});
        // console.log(indexName)
         //console.log("DATAEN TIL VALGT SPELL",spellData)
        // console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
-        console.log("CORRECTANSWERDATA",correctAnswerData)
-
+        //console.log("CORRECTANSWERDATA",correctAnswerData)
+       
     
     
     
            const wantedCats=["casting_time","level","range","damage","classes","components","concentration","school"]
+
+
+
+           //This is how the searched spell values are decided
         useEffect(()=>{
             if (spellData){
                 const values={};
@@ -43,6 +48,21 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
             
             }
         },[spellData]);
+        //This is how the correctAnswer Spell Values are decided
+        useEffect(()=>{
+            if(correctAnswerData){
+                const values={};
+                    wantedCats.forEach(cat=>{
+                        if(cat in correctAnswerData){
+                            values[cat]=(correctAnswerData[cat]);
+                        }
+                    });
+                    setCorrectAnswerValues(values)
+                    
+                };
+                
+            },[correctAnswerData]
+        )
 
         //Here it can be multiple, 
         useEffect(()=>{
@@ -68,31 +88,24 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
                 } ,[spellData,wantedCardValues]);
          
 
-        /*
-        useEffect(()=>{
-           if (spellData   && wantedCardValues?.school){
-                const values= wantedCardValues?.school;
-                setSchool(values);
 
-            }
-        }, [spellData,wantedCardValues]);  I dont think this is actually neeeded, I might be wrong */
-      
 
     
           
         if(isLoading) return <p>Loading...</p>
         if(error) return <p>error</p> 
 
-//WARNING. I DO BELIEVE THAT ALL OF THESE VALUES SHOULD BE PASSED DOWN INSTEAD OF BEING CALCULATED HERE
+//Searched Spell Values
       const castingTime=wantedCardValues.casting_time;
       const level=wantedCardValues.level;
       const range=wantedCardValues.range;  
       const damage= wantedCardValues.damage?.damage_at_character_level?.[1]??wantedCardValues.damage?.damage_at_slot_level?.[wantedCardValues?.level]??"No Damage";
       const damageType=wantedCardValues.damage?.damage_type?.index??"No Damage Type";
       
-  
+    console.log(correcAnswerValues)
 
-
+// Correct Answer Spell Values
+    
 
       //JS Object Spell structure example
       /* {

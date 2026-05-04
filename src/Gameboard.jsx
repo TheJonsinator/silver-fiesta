@@ -102,10 +102,14 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
       const damage= wantedCardValues.damage?.damage_at_character_level?.[1]??wantedCardValues.damage?.damage_at_slot_level?.[wantedCardValues?.level]??"No Damage";
       const damageType=wantedCardValues.damage?.damage_type?.index??"No Damage Type";
       
-    console.log(correcAnswerValues)
+    //console.log(correcAnswerValues)
+
 
 // Correct Answer Spell Values
-    
+    const correctCastingTime= correcAnswerValues.casting_time;
+    const correctRange=correcAnswerValues.range;
+
+    console.log("Values of the Correct ANSWER",correctCastingTime,correctRange)
 
       //JS Object Spell structure example
       /* {
@@ -121,13 +125,13 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
       }
       
       */
-     function compareValues(a,b){
-        if(a==b){
+     function compareValues(answer,guess){
+        if(answer==guess){
             return "Identical"
         
 
         }
-        else if(a!=b && b.includes(a) ){
+        else if(answer!=guess && guess.includes(answer) ){
             return "Partial"
         
         }
@@ -144,6 +148,9 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         return dictionaryOfResults;
 
       }
+
+
+      
 
     return(<>
     <p>Riktig Svar {correctAnswerName} Søkte {indexName}</p>

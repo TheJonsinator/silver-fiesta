@@ -21,8 +21,9 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [wantedCardValues,setWantedCardValues]=useState({});
         const [classValues,setClassValues]=useState([]);
         const [vsmComponents,setVSMComponents]=useState([]);
-        const [school,setSchool]=useState("");
         const [correctAnswerValues,setCorrectAnswerValues]=useState({});
+        const [correctClasses,setCorrectClasses]=useState([]);
+        const [correctVSMComponents,setCorrectVSMComponents]=useState([]);
        // console.log(indexName)
         //console.log("DATAEN TIL VALGT SPELL",spellData)
        // console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
@@ -64,6 +65,9 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
             },[correctAnswerData]
         )
 
+
+
+
         //Here it can be multiple, 
         useEffect(()=>{
             if (spellData&& wantedCardValues?.classes){
@@ -88,8 +92,28 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
                 } ,[spellData,wantedCardValues]);
          
 
+    
+    
+    
+    
+    
+    //Correct Answer Classes
+        
+        useEffect(()=>{
+    if(correctAnswerData && correctAnswerValues){
+        const values = correctAnswerValues.classes.map(spellClass=>{return `${spellClass.index} `});
+        setCorrectClasses(values);}
+    },[correctAnswerData,correctAnswerValues] );
 
+//Correct Answer VSM
+    useEffect(()=>{
+            if (correctAnswerData&& correctAnswerValues?.components){
+                const values=correctAnswerValues.components.map(components=>`${components}, `);
 
+                setCorrectVSMComponents(values);
+                
+            }
+                } ,[correctAnswerData,correctAnswerValues]);
     
           
         if(isLoading) return <p>Loading...</p>
@@ -109,8 +133,10 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     const correctCastingTime= correctAnswerValues.casting_time;
     const correctLevel=correctAnswerValues.level;
     const correctRange=correctAnswerValues.range;
+    const correctDamage=correctAnswerValues.damage?.damage_at_character_level?.[1]??correctAnswerValues.damage?.damage_at_slot_level?.[correctAnswerValues?.level]??"No Damage";
+    const correctDamageType=correctAnswerValues.damage?.damage_type?.index??"No Damage Type";
 
-    console.log("Values of the Correct ANSWER",correctCastingTime,correctLevel,correctRange)
+    console.log("Values of the Correct ANSWER",correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType)
 
       //JS Object Spell structure example
       /* {

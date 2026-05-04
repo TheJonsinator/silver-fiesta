@@ -184,10 +184,13 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         }
      } 
       function compareSpellToAnswer(chosenSpell,answerSpell){
+        if(!chosenSpell,answerSpell) return;
         let temporary=[];
-        console.log(answerSpell.length+2)
+        console.log(answerSpell.length)
         for(let i=0; i<answerSpell.length; i++){
+            console.log("Denne Her Jonas:",answerSpell[i],chosenSpell[i])
             temporary.push(compareValues(answerSpell[i],chosenSpell[i]))
+        console.log(temporary)
             
         }
         return temporary;
@@ -199,8 +202,9 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
 
 
-    console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
-    console.log(compareSpellToAnswer(correctAnswersObject,guessObject))
+    //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+    //console.log("HALLO",compareSpellToAnswer(correctAnswersObject,guessObject))
+    compareSpellToAnswer(correctAnswersObject,guessObject)
 
    
 

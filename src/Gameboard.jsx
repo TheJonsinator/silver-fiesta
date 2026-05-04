@@ -140,19 +140,19 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
 
 
-    const guessObject={
+    const guessObject=[
         castingTime,level,range,damage,damageType,classValues,vsmComponents
-    };
+    ];
     //console.log(guessObject);
 
 
 
 
-    const correctAnswersObject={
+    const correctAnswersObject=[
         correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType,correctClasses,correctVSMComponents
-    };
+    ];
 
-    //console.log(correctAnswersObject);
+    //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
 
 
       //JS Object Spell structure example
@@ -184,14 +184,23 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         }
      } 
       function compareSpellToAnswer(chosenSpell,answerSpell){
-        let dictionaryOfResults={};
-        Object.keys(chosenSpell).forEach(key=>{
-            dictionaryOfResults[key]=compareValues(chosenSpell[key],answerSpell[key])
+        let temporary=[];
+        console.log(answerSpell.length+2)
+        for(let i=0; i<answerSpell.length; i++){
+            temporary.push(compareValues(answerSpell[i],chosenSpell[i]))
+            
+        }
+        return temporary;
 
-        })
-        return dictionaryOfResults;
+    
+    
+    
+    }
 
-      }
+
+
+    console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+    console.log(compareSpellToAnswer(correctAnswersObject,guessObject))
 
    
 

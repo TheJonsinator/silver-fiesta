@@ -139,11 +139,20 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     //console.log("Values of the Correct ANSWER",correctClasses,correctVSMComponents)
 
 
+
+    const guessObject={
+        castingTime,level,range,damage,damageType,classValues,vsmComponents
+    };
+    //console.log(guessObject);
+
+
+
+
     const correctAnswersObject={
         correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType,correctClasses,correctVSMComponents
-    }
+    };
 
-    console.log(correctAnswersObject)
+    //console.log(correctAnswersObject);
 
 
       //JS Object Spell structure example
@@ -184,8 +193,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
       }
 
-
-      
+   
 
     return(<>
     <p>Riktig Svar {correctAnswerName} Søkte {indexName}</p>

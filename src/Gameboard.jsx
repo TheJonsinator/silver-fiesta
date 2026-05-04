@@ -22,7 +22,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [classValues,setClassValues]=useState([]);
         const [vsmComponents,setVSMComponents]=useState([]);
         const [school,setSchool]=useState("");
-        const [correcAnswerValues,setCorrectAnswerValues]=useState({});
+        const [correctAnswerValues,setCorrectAnswerValues]=useState({});
        // console.log(indexName)
         //console.log("DATAEN TIL VALGT SPELL",spellData)
        // console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
@@ -106,10 +106,11 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
 
 // Correct Answer Spell Values
-    const correctCastingTime= correcAnswerValues.casting_time;
-    const correctRange=correcAnswerValues.range;
+    const correctCastingTime= correctAnswerValues.casting_time;
+    const correctLevel=correctAnswerValues.level;
+    const correctRange=correctAnswerValues.range;
 
-    console.log("Values of the Correct ANSWER",correctCastingTime,correctRange)
+    console.log("Values of the Correct ANSWER",correctCastingTime,correctLevel,correctRange)
 
       //JS Object Spell structure example
       /* {

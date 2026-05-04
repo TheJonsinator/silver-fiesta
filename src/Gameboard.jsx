@@ -100,10 +100,10 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     //Correct Answer Classes
         
         useEffect(()=>{
-    if(correctAnswerData && correctAnswerValues){
-        const values = correctAnswerValues.classes.map(spellClass=>{return `${spellClass.index} `});
+    if(correctAnswerData && correctAnswerValues?.classes){
+        const values = correctAnswerValues.classes.map(spellClass=> {return `${spellClass.index} `});
         setCorrectClasses(values);}
-    },[correctAnswerData,correctAnswerValues] );
+    },[correctAnswerData,correctAnswerValues]);
 
 //Correct Answer VSM
     useEffect(()=>{
@@ -136,7 +136,15 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     const correctDamage=correctAnswerValues.damage?.damage_at_character_level?.[1]??correctAnswerValues.damage?.damage_at_slot_level?.[correctAnswerValues?.level]??"No Damage";
     const correctDamageType=correctAnswerValues.damage?.damage_type?.index??"No Damage Type";
 
-    console.log("Values of the Correct ANSWER",correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType)
+    //console.log("Values of the Correct ANSWER",correctClasses,correctVSMComponents)
+
+
+    const correctAnswersObject={
+        correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType,correctClasses,correctVSMComponents
+    }
+
+    console.log(correctAnswersObject)
+
 
       //JS Object Spell structure example
       /* {

@@ -125,6 +125,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
       const range=wantedCardValues.range;  
       const damage= wantedCardValues.damage?.damage_at_character_level?.[1]??wantedCardValues.damage?.damage_at_slot_level?.[wantedCardValues?.level]??"No Damage";
       const damageType=wantedCardValues.damage?.damage_type?.index??"No Damage Type";
+      const school=wantedCardValues?.school?.index;
       
     //console.log(correcAnswerValues)
 
@@ -135,13 +136,14 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     const correctRange=correctAnswerValues.range;
     const correctDamage=correctAnswerValues.damage?.damage_at_character_level?.[1]??correctAnswerValues.damage?.damage_at_slot_level?.[correctAnswerValues?.level]??"No Damage";
     const correctDamageType=correctAnswerValues.damage?.damage_type?.index??"No Damage Type";
+    const correctSchool=correctAnswerValues?.school?.index;
 
     //console.log("Values of the Correct ANSWER",correctClasses,correctVSMComponents)
 
 
 
     const guessObject=[
-        castingTime,level,range,damage,damageType,classValues,vsmComponents
+        castingTime,level,range,damage,damageType,classValues,vsmComponents,school
     ];
     //console.log(guessObject);
 
@@ -149,10 +151,10 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
 
     const correctAnswersObject=[
-        correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType,correctClasses,correctVSMComponents
+        correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType,correctClasses,correctVSMComponents,correctSchool
     ];
 
-    //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+    console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
 
 
       //JS Object Spell structure example

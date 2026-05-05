@@ -157,27 +157,23 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
 
 
-      //JS Object Spell structure example
-      /* {
-      name:spellName,
-      castingTime:castingTime,
-      level:level,
-      range:range,
-      damage:damage,
-      damageType:damageType,
-      class:class,
-      vsm:vsm,
-      school:school
-      }
-      
-      */
+     /* const testValue=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard"], Array(3), 'transmutation'];
+      const testValue2=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard","sorcerer"], Array(3), 'transmutation'];
+        
+      testValue.forEach((value,i)=>{
+        const b= testValue2[i];
+        console.log(compareValues(value,b))
+      });*/
+
+      //THIS PROVES THAT COMPARE VALUES WORKS FOR IDENTICAL, not for Partial. Lets try to fix..
+  
      function compareValues(answer,guess){
         if(answer==guess){
             return "Identical"
         
 
         }
-        else if(answer!=guess && guess.includes(answer) ){
+        else if(answer!=guess && guess.includes(answer) || (answer!=guess) && answer.includes(guess) ){
             return "Partial"
         
         }

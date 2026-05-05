@@ -157,15 +157,14 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
 
 
-     /* const testValue=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard"], Array(3), 'transmutation'];
+      const testValue=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard"], Array(3), 'transmutation'];
       const testValue2=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard","sorcerer"], Array(3), 'transmutation'];
         
       testValue.forEach((value,i)=>{
         const b= testValue2[i];
         console.log(compareValues(value,b))
-      });*/
+      });
 
-      //THIS PROVES THAT COMPARE VALUES WORKS FOR IDENTICAL, not for Partial. Lets try to fix..
   
      function compareValues(answer,guess){
         if(answer==guess){
@@ -173,14 +172,19 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         
 
         }
-        else if(answer!=guess && guess.includes(answer) || (answer!=guess) && answer.includes(guess) ){
-            return "Partial"
+
+        //Ukjent med .some Her er det jeg finner på nett: The some() method in JavaScript is
+        //used to test whether at least one element in an array passes a test implemented by a provided function.
+        //  It returns true if it finds an element for which the provided function returns true;
+        //  otherwise, it returns false. This method does not modify the array.
+        const hasCommon=answer.some(val=>guess.includes(val));
+        if(hasCommon){
+            return "Partial";
+        }
         
-        }
-        else{
-            return "Nothing in Common"
-        }
-     } 
+        
+            return "Nothing in Common";
+        } 
       function compareSpellToAnswer(chosenSpell,answerSpell){
         if(!chosenSpell,answerSpell) return;
         let temporary=[];

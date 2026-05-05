@@ -56,13 +56,14 @@ function handleSearch(e){
   setActiveSearch(spellName)
   if(allSpellNames.includes(spellName)){
     setListOfGuesses(prevList=>[spellName, ...prevList])
+    
   }
   console.log(spellName)
-  console.log(listOfGuesses)
+ 
 
 }
     
-
+console.log(listOfGuesses)
 
 
   return (

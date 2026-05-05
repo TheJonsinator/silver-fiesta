@@ -154,16 +154,16 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType,correctClasses,correctVSMComponents,correctSchool
     ];
 
-    console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+   // console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
 
-
-      const testValue=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard"], Array(3), 'transmutation'];
+    //TEST FOR COMPARE VALUES FUNCTION. NOT NEEDED MOST LIKELY ANYMORE
+     /* const testValue=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard"], Array(3), 'transmutation'];
       const testValue2=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard","sorcerer"], Array(3), 'transmutation'];
         
       testValue.forEach((value,i)=>{
         const b= testValue2[i];
         console.log(compareValues(value,b))
-      });
+      });*/
 
   
      function compareValues(answer,guess){

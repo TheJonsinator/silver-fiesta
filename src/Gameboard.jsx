@@ -146,7 +146,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         castingTime,level,range,damage,damageType,classValues,vsmComponents,school
     ];
     //console.log(guessObject);
-
+    const normalizedGuessObject=guessObject.map(element=>Array.isArray(element)? element:[element]);
 
 
 
@@ -154,9 +154,35 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType,correctClasses,correctVSMComponents,correctSchool
     ];
 
-   // console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+    const normalizedCorrectAnswersObject=correctAnswersObject.map(element=>Array.isArray(element)? element:[element]);
 
-    //TEST FOR COMPARE VALUES FUNCTION. NOT NEEDED MOST LIKELY ANYMORE
+  console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+  console.log("HEEEER", correctAnswersObject.map(element=>{return typeof element}))
+
+   
+
+  
+   function compareValues(answer,guess){
+    console.log( "Typen til Answer",typeof answer,"Typen til guess", typeof guess)
+     if(answer==guess){
+     return "Identical" }
+     
+     //Ukjent med .some Her er det jeg finner på nett: The some() method in JavaScript is
+     //used to test whether at least one element in an array passes a test implemented by a provided function. 
+     // It returns true if it finds an element for which the provided function returns true; //
+     //  otherwise, it returns false. This method does not modify the array.
+    const hasCommon= answer.some(val=>guess.includes(val));
+     if(hasCommon){ return "Partial";
+        
+      }
+    return "Nothing in Common";
+
+
+
+    }
+
+
+     //TEST FOR COMPARE VALUES FUNCTION. NOT NEEDED MOST LIKELY ANYMORE
      /* const testValue=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard"], Array(3), 'transmutation'];
       const testValue2=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard","sorcerer"], Array(3), 'transmutation'];
         
@@ -165,21 +191,11 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         console.log(compareValues(value,b))
       });*/
 
-  
-   function compareValues(answer,guess){
-     if(answer==guess){
-     return "Identical" }
-     
-     //Ukjent med .some Her er det jeg finner på nett: The some() method in JavaScript is
-     //used to test whether at least one element in an array passes a test implemented by a provided function. 
-     // It returns true if it finds an element for which the provided function returns true; //
-     //  otherwise, it returns false. This method does not modify the array.
-    const hasCommon=answer.some(val=>guess.includes(val)); if(hasCommon){ return "Partial"; } return "Nothing in Common"; }
     
     
     function compareSpellToAnswer(chosenSpell,answerSpell){
     let temporary=[];
-     console.log(answerSpell.length);
+    
      for(let i=0; i<answerSpell.length; i++){ 
     temporary.push(compareValues(answerSpell[i],chosenSpell[i]))}
     
@@ -188,11 +204,14 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
 
     //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
-
+       
+    /*
     useEffect(()=>{
-    if(correctAnswersObject && guessObject){
-    console.log(compareSpellToAnswer(correctAnswersObject,guessObject));}}
-    ,[correctAnswersObject,guessObject]);
+    if(!correctAnswersObject || !guessObject) return; 
+    console.log(compareSpellToAnswer(correctAnswersObject,guessObject));}
+    ,[correctAnswersObject,guessObject]); */
+
+
 
 
    

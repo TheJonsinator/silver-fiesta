@@ -41,10 +41,9 @@ function App() {
 
   
   //Randomly Choses a number from between one and 320(the amount of spells are 319,I hardcoded this cause while I could you length of the resultList)
- /* console.log(correctAnswer)
+  //console.log(correctAnswer)
   
-  console.log(allSpellNames)
-*/
+  //console.log(allSpellNames)
 
 console.log(spellNames.results[correctAnswer].index)
 

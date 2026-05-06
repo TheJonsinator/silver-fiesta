@@ -166,47 +166,34 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
       });*/
 
   
-     function compareValues(answer,guess){
-        if(answer==guess){
-            return "Identical"
-        
-
-        }
-
-        //Ukjent med .some Her er det jeg finner på nett: The some() method in JavaScript is
-        //used to test whether at least one element in an array passes a test implemented by a provided function.
-        //  It returns true if it finds an element for which the provided function returns true;
-        //  otherwise, it returns false. This method does not modify the array.
-        const hasCommon=answer.some(val=>guess.includes(val));
-        if(hasCommon){
-            return "Partial";
-        }
-        
-        
-            return "Nothing in Common";
-        } 
-      function compareSpellToAnswer(chosenSpell,answerSpell){
-        if(!chosenSpell,answerSpell) return;
-        let temporary=[];
-        console.log(answerSpell.length)
-        for(let i=0; i<answerSpell.length; i++){
-            console.log("Denne Her Jonas:",answerSpell[i],chosenSpell[i])
-            temporary.push(compareValues(answerSpell[i],chosenSpell[i]))
-        console.log(temporary)
-            
-        }
-        return temporary;
-
+   function compareValues(answer,guess){
+     if(answer==guess){
+     return "Identical" }
+     
+     //Ukjent med .some Her er det jeg finner på nett: The some() method in JavaScript is
+     //used to test whether at least one element in an array passes a test implemented by a provided function. 
+     // It returns true if it finds an element for which the provided function returns true; //
+     //  otherwise, it returns false. This method does not modify the array.
+    const hasCommon=answer.some(val=>guess.includes(val)); if(hasCommon){ return "Partial"; } return "Nothing in Common"; }
     
     
+    function compareSpellToAnswer(chosenSpell,answerSpell){
+    let temporary=[];
+     console.log(answerSpell.length);
+     for(let i=0; i<answerSpell.length; i++){ 
+    temporary.push(compareValues(answerSpell[i],chosenSpell[i]))}
     
-    }
+    return temporary; }
 
 
 
     //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
-    //console.log("HALLO",compareSpellToAnswer(correctAnswersObject,guessObject))
-    compareSpellToAnswer(correctAnswersObject,guessObject)
+
+    useEffect(()=>{
+    if(correctAnswersObject && guessObject){
+    console.log(compareSpellToAnswer(correctAnswersObject,guessObject));}}
+    ,[correctAnswersObject,guessObject]);
+
 
    
 

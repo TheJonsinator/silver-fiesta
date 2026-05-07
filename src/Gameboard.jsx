@@ -155,7 +155,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
     const normalizedCorrectAnswersObject=correctAnswersObject.map(element=>Array.isArray(element)? element:[element]);
 
-  //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+  console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
   //console.log("HEEEER", correctAnswersObject.map(element=>{return typeof element}))
 
    
@@ -181,7 +181,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
         }
         if(typeof answer=="object"){
-            if(answer==guess){
+            if(JSON.stringify(answer)==JSON.stringify(guess)){
             return "Identical" }
             const hasCommon= answer.some(val=>guess.includes(val));
             if(hasCommon){ return "Partial";

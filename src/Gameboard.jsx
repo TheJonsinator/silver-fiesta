@@ -141,7 +141,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
 
 
-    const guessObject=[
+    let guessObject=[
         castingTime,level,range,damage,damageType,classValues,vsmComponents,school
     ];
     //console.log(guessObject);
@@ -155,7 +155,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
     const normalizedCorrectAnswersObject=correctAnswersObject.map(element=>Array.isArray(element)? element:[element]);
 
-  console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+  //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
   //console.log("HEEEER", correctAnswersObject.map(element=>{return typeof element}))
 
    
@@ -187,21 +187,13 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
             if(hasCommon){ return "Partial";
         
       }
-            return "Nothing in Common";
+            return "Wrong";
 
         }
     }
 
 
-     //TEST FOR COMPARE VALUES FUNCTION. NOT NEEDED MOST LIKELY ANYMORE
-     /* const testValue=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard"], Array(3), 'transmutation'];
-      const testValue2=['1 action', 2, '30 feet', 'No Damage', 'No Damage Type', ["wizard","sorcerer"], Array(3), 'transmutation'];
-        
-      testValue.forEach((value,i)=>{
-        const b= testValue2[i];
-        console.log(compareValues(value,b))
-      });*/
-
+   
     
     
     function compareSpellToAnswer(chosenSpell,answerSpell){
@@ -218,7 +210,8 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
        
     
     useEffect(()=>{
-    if(!correctAnswersObject || !guessObject) return; 
+        if(!correctAnswersObject || !guessObject) return;
+
     console.log(compareSpellToAnswer(correctAnswersObject,guessObject));}
     ,[correctAnswersObject,guessObject]); 
 

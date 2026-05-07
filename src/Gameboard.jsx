@@ -24,7 +24,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [correctAnswerValues,setCorrectAnswerValues]=useState({});
         const [correctClasses,setCorrectClasses]=useState([]);
         const [correctVSMComponents,setCorrectVSMComponents]=useState([]);
-        const [winConditionMet,setWindConditionMet]=useState(false);
+        const [winConditionMet,setWinConditionMet]=useState(false);
        // console.log(indexName)
         //console.log("DATAEN TIL VALGT SPELL",spellData)
        // console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
@@ -202,8 +202,8 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     
      for(let i=0; i<answerSpell.length; i++){ 
     temporary.push(compareValues(answerSpell[i],chosenSpell[i]))}
-    if(temporary==['Identical', 'Identical', 'Identical', 'Identical', 'Identical', 'Identical', 'Identical', 'Identical']){
-        setWindConditionMet(true)
+    if(temporary.every(result=>result==="Identical")){
+        setWinConditionMet(true)
 
     }
     
@@ -217,13 +217,13 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
    useEffect(()=>{
         if(!correctAnswersObject || !guessObject) return;
     console.log(guessObject[3])
-    console.log("JOBASSS!!!!",compareSpellToAnswer(correctAnswersObject,guessObject));}
+    console.log(compareSpellToAnswer(correctAnswersObject,guessObject));}
     ,[correctAnswersObject,guessObject]);
 
 
 
     if(winConditionMet){
-        console.log("DU VANT!!!!!!")
+        console.log("DU VANT!!!!!!");
     }
     
 

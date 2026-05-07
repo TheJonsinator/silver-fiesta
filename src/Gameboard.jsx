@@ -24,6 +24,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [correctAnswerValues,setCorrectAnswerValues]=useState({});
         const [correctClasses,setCorrectClasses]=useState([]);
         const [correctVSMComponents,setCorrectVSMComponents]=useState([]);
+        const [winConditionMet,setWindConditionMet]=useState(false);
        // console.log(indexName)
         //console.log("DATAEN TIL VALGT SPELL",spellData)
        // console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
@@ -145,7 +146,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         castingTime,level,range,damage,damageType,classValues,vsmComponents,school
     ];
     //console.log(guessObject);
-    const normalizedGuessObject=guessObject.map(element=>Array.isArray(element)? element:[element]);
+
 
 
 
@@ -153,7 +154,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         correctCastingTime,correctLevel,correctRange,correctDamage,correctDamageType,correctClasses,correctVSMComponents,correctSchool
     ];
 
-    const normalizedCorrectAnswersObject=correctAnswersObject.map(element=>Array.isArray(element)? element:[element]);
+    
 
   //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
   //console.log("HEEEER", correctAnswersObject.map(element=>{return typeof element}))
@@ -201,21 +202,30 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     
      for(let i=0; i<answerSpell.length; i++){ 
     temporary.push(compareValues(answerSpell[i],chosenSpell[i]))}
+    if(temporary==['Identical', 'Identical', 'Identical', 'Identical', 'Identical', 'Identical', 'Identical', 'Identical']){
+        setWindConditionMet(true)
+
+    }
     
     return temporary; }
 
 
 
-   // console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+  
        
     
-    useEffect(()=>{
+   useEffect(()=>{
         if(!correctAnswersObject || !guessObject) return;
+    console.log(guessObject[3])
+    console.log("JOBASSS!!!!",compareSpellToAnswer(correctAnswersObject,guessObject));}
+    ,[correctAnswersObject,guessObject]);
 
-    console.log(compareSpellToAnswer(correctAnswersObject,guessObject));}
-    ,[correctAnswersObject,guessObject]); 
 
 
+    if(winConditionMet){
+        console.log("DU VANT!!!!!!")
+    }
+    
 
         //these two ifs have apperantly been giving me lots of headaches and been the causes of many runtime errors. The "different amounts of renders errors"
     if(isLoading) return <p>Loading...</p>

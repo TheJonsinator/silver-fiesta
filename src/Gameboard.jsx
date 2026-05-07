@@ -116,8 +116,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
                 } ,[correctAnswerData,correctAnswerValues]);
     
           
-        if(isLoading) return <p>Loading...</p>
-        if(error) return <p>error</p> 
+        
 
 //Searched Spell Values
       const castingTime=wantedCardValues.casting_time;
@@ -156,29 +155,41 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
     const normalizedCorrectAnswersObject=correctAnswersObject.map(element=>Array.isArray(element)? element:[element]);
 
-  console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
-  console.log("HEEEER", correctAnswersObject.map(element=>{return typeof element}))
+  //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+  //console.log("HEEEER", correctAnswersObject.map(element=>{return typeof element}))
 
    
 
-  
-   function compareValues(answer,guess){
-    console.log( "Typen til Answer",typeof answer,"Typen til guess", typeof guess)
-     if(answer==guess){
-     return "Identical" }
-     
-     //Ukjent med .some Her er det jeg finner på nett: The some() method in JavaScript is
-     //used to test whether at least one element in an array passes a test implemented by a provided function. 
-     // It returns true if it finds an element for which the provided function returns true; //
-     //  otherwise, it returns false. This method does not modify the array.
-    const hasCommon= answer.some(val=>guess.includes(val));
-     if(hasCommon){ return "Partial";
+    function compareValues(answer,guess){
+        if(typeof answer=="string"){
+            if(answer==guess){
+            return "Identical" }
+            else{
+                return "Wrong"
+            }
+
+        }
+        if(typeof answer=="number"){
+            if(answer==guess){
+            return "Identical" }
+            else if(guess>answer){
+                return "Lower";
+            }
+            else{
+                return "Higher";
+            }
+
+        }
+        if(typeof answer=="object"){
+            if(answer==guess){
+            return "Identical" }
+            const hasCommon= answer.some(val=>guess.includes(val));
+            if(hasCommon){ return "Partial";
         
       }
-    return "Nothing in Common";
+            return "Nothing in Common";
 
-
-
+        }
     }
 
 
@@ -203,18 +214,19 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
 
 
-    //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+   // console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
        
-    /*
+    
     useEffect(()=>{
     if(!correctAnswersObject || !guessObject) return; 
     console.log(compareSpellToAnswer(correctAnswersObject,guessObject));}
-    ,[correctAnswersObject,guessObject]); */
+    ,[correctAnswersObject,guessObject]); 
 
 
 
-
-   
+        //these two ifs have apperantly been giving me lots of headaches and been the causes of many runtime errors. The "different amounts of renders errors"
+    if(isLoading) return <p>Loading...</p>
+    if(error) return <p>error</p> 
 
     return(<>
     <p>Riktig Svar {correctAnswerName} Søkte {indexName}</p>

@@ -25,10 +25,8 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [correctClasses,setCorrectClasses]=useState([]);
         const [correctVSMComponents,setCorrectVSMComponents]=useState([]);
         const [winConditionMet,setWinConditionMet]=useState(false);
-       // console.log(indexName)
-        //console.log("DATAEN TIL VALGT SPELL",spellData)
-       // console.log("LISTEN OVER ALLE NAVNENE",listOfAllNames)
-        //console.log("CORRECTANSWERDATA",correctAnswerData)
+        const [valuesOfIdenticality,setValuesOfIdenticality]=useState([]);
+   
        
     
     
@@ -203,11 +201,13 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
      for(let i=0; i<answerSpell.length; i++){ 
     temporary.push(compareValues(answerSpell[i],chosenSpell[i]))}
     if(temporary.every(result=>result==="Identical")){
+        console.log(temporary);
         setWinConditionMet(true)
 
+
     }
-    
-    return temporary; }
+    setValuesOfIdenticality(temporary);
+        return temporary; }
 
 
 
@@ -216,8 +216,8 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     
    useEffect(()=>{
         if(!correctAnswersObject || !guessObject) return;
-    console.log(guessObject[3])
-    console.log(compareSpellToAnswer(correctAnswersObject,guessObject));}
+    console.log(guessObject[3]);
+    (compareSpellToAnswer(correctAnswersObject,guessObject));}
     ,[correctAnswersObject,guessObject]);
 
 
@@ -226,7 +226,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         console.log("DU VANT!!!!!!");
     }
     
-
+    console.log(valuesOfIdenticality);
         //these two ifs have apperantly been giving me lots of headaches and been the causes of many runtime errors. The "different amounts of renders errors"
     if(isLoading) return <p>Loading...</p>
     if(error) return <p>error</p> 

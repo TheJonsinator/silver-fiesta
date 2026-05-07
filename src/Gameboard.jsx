@@ -1,5 +1,5 @@
 import "./Gameboard.css";
-import {useEffect, useState} from "react"
+import {useEffect, useState,useMemo} from "react"
 import get from "./fetcher";
 import GameCard from "./GameCard";
 import {useQuery} from "@tanstack/react-query";
@@ -25,7 +25,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
         const [correctClasses,setCorrectClasses]=useState([]);
         const [correctVSMComponents,setCorrectVSMComponents]=useState([]);
         const [winConditionMet,setWinConditionMet]=useState(false);
-        const [valuesOfIdenticality,setValuesOfIdenticality]=useState([]);
+       
    
        
     
@@ -200,24 +200,27 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     
      for(let i=0; i<answerSpell.length; i++){ 
     temporary.push(compareValues(answerSpell[i],chosenSpell[i]))}
-    if(temporary.every(result=>result==="Identical")){
-        console.log(temporary);
+    
+    if(temporary.every(result=>result==="Identical")&& !winConditionMet){
         setWinConditionMet(true)
+        
 
 
     }
-    setValuesOfIdenticality(temporary);
-        return temporary; }
+    
+        return temporary;
+    
+    }
 
 
 
   
        
     
-   useEffect(()=>{
-        if(!correctAnswersObject || !guessObject) return;
-    console.log(guessObject[3]);
-    (compareSpellToAnswer(correctAnswersObject,guessObject));}
+   const valuesOfIdenticality = useMemo(()=>{
+        if(!correctAnswersObject || !guessObject) return [];
+   
+    return compareSpellToAnswer(correctAnswersObject,guessObject);}
     ,[correctAnswersObject,guessObject]);
 
 
@@ -235,14 +238,14 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     <p>Riktig Svar {correctAnswerName} Søkte {indexName}</p>
     <div className="Gameboard">
                    
-                   <GameCard cardValue={castingTime}></GameCard>
-                    <GameCard cardValue={`Level ${level}`}></GameCard>
-                   <GameCard cardValue={range}></GameCard>
-                   <GameCard cardValue={damage}></GameCard>
-                   <GameCard cardValue={damageType}></GameCard>
-                   <GameCard cardValue={classValues}></GameCard>
-                   <GameCard cardValue={vsmComponents}></GameCard>
-                   <GameCard cardValue={wantedCardValues?.school?.index}></GameCard>
+                   <GameCard cardValue={castingTime} compareValue={valuesOfIdenticality[0]}></GameCard>
+                    <GameCard cardValue={`Level ${level}`} compareValue={valuesOfIdenticality[1]}></GameCard>
+                   <GameCard cardValue={range} compareValue={valuesOfIdenticality[2]}></GameCard>
+                   <GameCard cardValue={damage} compareValue={valuesOfIdenticality[3]}></GameCard>
+                   <GameCard cardValue={damageType} compareValue={valuesOfIdenticality[4]}></GameCard>
+                   <GameCard cardValue={classValues} compareValue={valuesOfIdenticality[5]}></GameCard>
+                   <GameCard cardValue={vsmComponents} compareValue={valuesOfIdenticality[6]}></GameCard>
+                   <GameCard cardValue={wantedCardValues?.school?.index}compareValue={valuesOfIdenticality[7]}></GameCard>
                   
                 
                     

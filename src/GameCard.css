@@ -34,3 +34,97 @@ p{
     background-color: azure;
     color: blue;
 }
+
+.GameCardIdentical{
+    background-color: green;
+       align-content: center;
+    justify-content: center;
+    width: 60px;
+    height: 90px;
+    border: 2px solid rgb(0, 0, 0);
+
+    color: black;
+  
+   
+    border-radius: 4px;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin:5px;
+    padding:10px;
+}
+
+
+
+.GameCardWrong{
+    background-color: red;
+       align-content: center;
+    justify-content: center;
+    width: 60px;
+    height: 90px;
+    border: 2px solid rgb(0, 0, 0);
+
+    color: black;
+  
+   
+    border-radius: 4px;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin:5px;
+    padding:10px;
+}
+
+.GameCardHigher{
+    background-color: red;
+       align-content: center;
+    justify-content: center;
+    width: 60px;
+    height: 90px;
+    border: 2px solid rgb(0, 0, 0);
+
+    color: black;
+  
+   
+    border-radius: 4px;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin:5px;
+    padding:10px;
+}
+
+
+.GameCardLower{
+    background-color: red;
+       align-content: center;
+    justify-content: center;
+    width: 60px;
+    height: 90px;
+    border: 2px solid rgb(0, 0, 0);
+
+    color: black;
+  
+   
+    border-radius: 4px;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin:5px;
+    padding:10px;
+}
+
+
+.GameCardPartial{
+    background-color: yellow;
+       align-content: center;
+    justify-content: center;
+    width: 60px;
+    height: 90px;
+    border: 2px solid rgb(0, 0, 0);
+
+    color: black;
+  
+   
+    border-radius: 4px;
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin:5px;
+    padding:10px;
+}

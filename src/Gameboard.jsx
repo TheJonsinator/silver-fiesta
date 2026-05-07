@@ -235,7 +235,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     if(error) return <p>error</p> 
 
     return(<>
-    <p>Riktig Svar {correctAnswerName} Søkte {indexName}</p>
+   
     <div className="Gameboard">
                    
                    <GameCard cardValue={castingTime} compareValue={valuesOfIdenticality[0]}></GameCard>

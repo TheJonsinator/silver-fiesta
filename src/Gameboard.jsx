@@ -235,7 +235,11 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     if(error) return <p>error</p> 
 
     return(<>
-   
+    <div className="headline">
+         <h4>{indexName}</h4>
+         
+     </div>
+  
     <div className="Gameboard">
                    
                    <GameCard cardValue={castingTime} compareValue={valuesOfIdenticality[0]}></GameCard>

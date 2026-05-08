@@ -3,6 +3,7 @@ import {useEffect, useState,useMemo} from "react"
 import get from "./fetcher";
 import GameCard from "./GameCard";
 import {useQuery} from "@tanstack/react-query";
+import confetti from "https://esm.sh/canvas-confetti@1"
 
 export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
@@ -222,6 +223,19 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
    
     return compareSpellToAnswer(correctAnswersObject,guessObject);}
     ,[correctAnswersObject,guessObject]);
+
+/* This Right here is just  candy, want the flip effect.
+    useEffect(()=>{
+        if(winConditionMet){
+        confetti({
+            spread:500,
+            particleCount:500,
+            origin:{x:0.5,y:1},
+            disableForReducedMotion:true
+        })}
+
+    })*/
+
 
 
 

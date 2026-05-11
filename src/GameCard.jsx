@@ -1,17 +1,18 @@
 import "./GameCard.css";
-import {useState,useEffect} from "react";
+import {useState,useEffect,useId} from "react";
 
 
 export default function GameCard({cardValue,compareValue,timeValue}){
     const [isFlipped,setIsFlipped]=useState(false);
+    const id=useId();
 
     useEffect(()=>{
-        
+            if(!isFlipped){
             const timer= setTimeout(()=>{
                 setIsFlipped(true);
 
             },timeValue/2);
-            return ()=>clearTimeout(timer);
+            return ()=>clearTimeout(timer);}
         
     },[]);
 
@@ -21,13 +22,15 @@ export default function GameCard({cardValue,compareValue,timeValue}){
     <div className="GameCardTop">
         <p>{compareValue}</p>
 
+    
+
     </div>
-       
+  
 
 
 
         <div className="card-container">
-        <div className={`card ${isFlipped ? "flipped" : ""}`}>
+        <div key={id} className={`card ${isFlipped ? "flipped" : ""}`}>
         <div className="side front">
             <p>Baksiden</p>
         </div>

@@ -7,9 +7,9 @@ export default function GameCard({cardValue,compareValue}){
         <p>{compareValue}</p>
 
     </div>
-    <div className={`GameCard${compareValue}`}>
-    
-    <p>{cardValue}</p>
+        <div className="GameCard-front">
+        <div className={`GameCard${compareValue}`}><p>{cardValue}</p>
+        </div>
     
     </div>
     </div>

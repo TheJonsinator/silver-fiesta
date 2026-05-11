@@ -256,14 +256,14 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
   
     <div className="Gameboard">
                    
-                   <GameCard cardValue={castingTime} compareValue={valuesOfIdenticality[0]}></GameCard>
-                    <GameCard cardValue={`Level ${level}`} compareValue={valuesOfIdenticality[1]}></GameCard>
-                   <GameCard cardValue={range} compareValue={valuesOfIdenticality[2]}></GameCard>
-                   <GameCard cardValue={damage} compareValue={valuesOfIdenticality[3]}></GameCard>
-                   <GameCard cardValue={damageType} compareValue={valuesOfIdenticality[4]}></GameCard>
-                   <GameCard cardValue={classValues} compareValue={valuesOfIdenticality[5]}></GameCard>
-                   <GameCard cardValue={vsmComponents} compareValue={valuesOfIdenticality[6]}></GameCard>
-                   <GameCard cardValue={wantedCardValues?.school?.index}compareValue={valuesOfIdenticality[7]}></GameCard>
+                   <GameCard cardValue={castingTime} compareValue={valuesOfIdenticality[0]} timeValue={1000}></GameCard>
+                    <GameCard cardValue={`Level ${level}`} compareValue={valuesOfIdenticality[1]} timeValue={2000}></GameCard>
+                   <GameCard cardValue={range} compareValue={valuesOfIdenticality[2]}timeValue={3000}></GameCard>
+                   <GameCard cardValue={damage} compareValue={valuesOfIdenticality[3] } timeValue={4000}></GameCard>
+                   <GameCard cardValue={damageType} compareValue={valuesOfIdenticality[4]} timeValue={5000}></GameCard>
+                   <GameCard cardValue={classValues} compareValue={valuesOfIdenticality[5]} timeValue={6000}></GameCard>
+                   <GameCard cardValue={vsmComponents} compareValue={valuesOfIdenticality[6]} timeValue={7000}></GameCard>
+                   <GameCard cardValue={wantedCardValues?.school?.index}compareValue={valuesOfIdenticality[7]}timeValue={8000} ></GameCard>
                   
                 
                     

@@ -1,6 +1,7 @@
 input{
     height:40px;
     width:70%;
+    min-width: 300px;
     font-size: large;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

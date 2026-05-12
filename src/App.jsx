@@ -70,6 +70,8 @@ function handleSearch(e){
     <div className="App">
       <header className="App-header">
         <Title></Title>
+        </header>
+        <main>
         <SearchBar submitFunction={handleSearch}></SearchBar>
     
 
@@ -79,14 +81,14 @@ function handleSearch(e){
         })}
    
 
-
+  </main>
 
 
 
         
        
         
-      </header>
+      
     </div>
   );
 }

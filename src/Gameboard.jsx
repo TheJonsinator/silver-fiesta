@@ -156,7 +156,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
     
 
-  //console.log("CorrectANSWER",correctAnswersObject,"Guess",guessObject);
+  console.log("CorrectANSWER",correctAnswerName);
   //console.log("HEEEER", correctAnswersObject.map(element=>{return typeof element}))
 
    

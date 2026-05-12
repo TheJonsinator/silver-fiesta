@@ -88,7 +88,10 @@ function handleSearch(e){
         
        
         
-      
+      <footer>
+        <p>Jonas Nordli 2026</p>
+        <a href="https://www.vg.no/">GithLogo</a>
+      </footer>
     </div>
   );
 }

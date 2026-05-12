@@ -37,3 +37,16 @@
 .small {
   font-size: 0.75rem;
 }
+
+main{
+  flex:1;
+}
+
+footer{
+  display: flex;
+  text-align: center;
+  
+}
+footer p{
+  padding-right: 30px;
+}

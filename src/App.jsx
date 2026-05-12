@@ -1,10 +1,11 @@
 import './App.css';
 import get from "./fetcher";
 import Gameboard from "./Gameboard.jsx";
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useId } from 'react';
 import {useQuery} from "@tanstack/react-query";
 import ComponentTest from './QueryComponentTest';
 import SearchBar from "./SearchBar"
+
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       queryKey:["spellNames"],
       queryFn:()=>get(""),});
     
-
+ const [id,setID]=useId(useId)
  const [activeSearch,setActiveSearch]=useState("");
  const [correctAnswer,setCorrectAnswer]=useState(null);
   const [selectedSpellIds,setSelectedSpellIds]=useState([])
@@ -54,7 +55,7 @@ function handleSearch(e){
   const spellName = data.get("spellName").toLowerCase().split(" ").join("-");
   setActiveSearch(spellName)
   if(allSpellNames.includes(spellName)){
-    setListOfGuesses(prevList=>[spellName, ...prevList])
+    setListOfGuesses(prevList=>[{spell:spellName,key:listOfGuesses.length},...prevList])
     
   }
   console.log(spellName)
@@ -72,7 +73,8 @@ console.log(listOfGuesses)
     
 
         {listOfGuesses.map((guess,index)=>{
-           return <Gameboard key={`${guess}-${index}`} indexName={guess} correctAnswerName={allSpellNames[correctAnswer]} listOfAllNames={allSpellNames}/>
+          
+           return <Gameboard key={`${guess.key}`} indexName={guess.spell} correctAnswerName={allSpellNames[correctAnswer]} listOfAllNames={allSpellNames}/>
         })}
    
 

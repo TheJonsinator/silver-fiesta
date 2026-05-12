@@ -7,12 +7,12 @@ export default function GameCard({cardValue,compareValue,timeValue}){
     const id=useId();
 
     useEffect(()=>{
-            if(!isFlipped){
+            
             const timer= setTimeout(()=>{
                 setIsFlipped(true);
 
             },timeValue/2);
-            return ()=>clearTimeout(timer);}
+            return ()=>clearTimeout(timer);
         
     },[]);
 

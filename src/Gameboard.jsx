@@ -1,11 +1,12 @@
 import "./Gameboard.css";
-import {useEffect, useState,useMemo} from "react"
+import {useEffect, useState,useMemo,useId} from "react"
 import get from "./fetcher";
 import GameCard from "./GameCard";
 import {useQuery} from "@tanstack/react-query";
 import confetti from "https://esm.sh/canvas-confetti@1"
 
 export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
+    const [id,setID]=useId(useId)
 
     const {data:spellData,isLoading,error} = useQuery({
           queryKey:["spellData",indexName],
@@ -256,14 +257,14 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
   
     <div className="Gameboard">
                    
-                   <GameCard cardValue={castingTime} compareValue={valuesOfIdenticality[0]} timeValue={1000}></GameCard>
-                    <GameCard cardValue={`Level ${level}`} compareValue={valuesOfIdenticality[1]} timeValue={2000}></GameCard>
-                   <GameCard cardValue={range} compareValue={valuesOfIdenticality[2]}timeValue={3000}></GameCard>
-                   <GameCard cardValue={damage} compareValue={valuesOfIdenticality[3] } timeValue={4000}></GameCard>
-                   <GameCard cardValue={damageType} compareValue={valuesOfIdenticality[4]} timeValue={5000}></GameCard>
-                   <GameCard cardValue={classValues} compareValue={valuesOfIdenticality[5]} timeValue={6000}></GameCard>
-                   <GameCard cardValue={vsmComponents} compareValue={valuesOfIdenticality[6]} timeValue={7000}></GameCard>
-                   <GameCard cardValue={wantedCardValues?.school?.index}compareValue={valuesOfIdenticality[7]}timeValue={8000} ></GameCard>
+                   <GameCard key={id+"castingTime"} cardValue={castingTime} compareValue={valuesOfIdenticality[0]} timeValue={1000}></GameCard>
+                    <GameCard key={id+"level"} cardValue={`Level ${level}`} compareValue={valuesOfIdenticality[1]} timeValue={2000}></GameCard>
+                   <GameCard key= {id+"range"} cardValue={range} compareValue={valuesOfIdenticality[2]}timeValue={3000}></GameCard>
+                   <GameCard key={id+"damage"} cardValue={damage} compareValue={valuesOfIdenticality[3] } timeValue={4000}></GameCard>
+                   <GameCard key={id+"damageType"} cardValue={damageType} compareValue={valuesOfIdenticality[4]} timeValue={5000}></GameCard>
+                   <GameCard key={id+"classValues"} cardValue={classValues} compareValue={valuesOfIdenticality[5]} timeValue={6000}></GameCard>
+                   <GameCard key={id+"vsmComponents"} cardValue={vsmComponents} compareValue={valuesOfIdenticality[6]} timeValue={7000}></GameCard>
+                   <GameCard key={id+"wantedCardValues"} cardValue={wantedCardValues?.school?.index}compareValue={valuesOfIdenticality[7]}timeValue={8000} ></GameCard>
                   
                 
                     

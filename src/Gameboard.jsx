@@ -225,17 +225,23 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     return compareSpellToAnswer(correctAnswersObject,guessObject);}
     ,[correctAnswersObject,guessObject]);
 
-/* This Right here is just  candy, want the flip effect.
+ //This Right here is just  candy, want the flip effect.
     useEffect(()=>{
+        
         if(winConditionMet){
-        confetti({
+            const timer= setTimeout(()=>{
+                confetti({
             spread:500,
             particleCount:500,
             origin:{x:0.5,y:1},
             disableForReducedMotion:true
-        })}
+        });
 
-    })*/
+     } ,4500);
+            return ()=>clearTimeout(timer);}
+        
+
+    },[winConditionMet]);
 
 
 

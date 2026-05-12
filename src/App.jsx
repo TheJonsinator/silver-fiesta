@@ -86,7 +86,7 @@ function handleSearch(e){
         
        
         <p>
-          {correctAnswer}
+          
           {spellNames.results[correctAnswer].index}
         </p>
       </header>

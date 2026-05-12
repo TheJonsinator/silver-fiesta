@@ -85,10 +85,7 @@ function handleSearch(e){
 
         
        
-        <p>
-          
-          {spellNames.results[correctAnswer].index}
-        </p>
+        
       </header>
     </div>
   );
@@ -99,6 +96,10 @@ export default App;
 
 
 
+//<p>
+          
+// {spellNames.results[correctAnswer].index}
+//</p>
 
 
 //NOTAT TIL SENERE, du må ikke gjøre en loop med useQuery inni, du må gjøre en useQuery, med en loop inni.

@@ -3,8 +3,8 @@ import get from "./fetcher";
 import Gameboard from "./Gameboard.jsx";
 import { useEffect, useState,useId } from 'react';
 import {useQuery} from "@tanstack/react-query";
-import ComponentTest from './QueryComponentTest';
-import SearchBar from "./SearchBar"
+import SearchBar from "./SearchBar";
+import Title from "./Title.jsx";
 
 
 
@@ -46,7 +46,7 @@ function App() {
   
   //console.log(allSpellNames)
 
-console.log(spellNames.results[correctAnswer].index)
+//console.log(spellNames.results[correctAnswer].index)
 
 
 function handleSearch(e){
@@ -63,12 +63,13 @@ function handleSearch(e){
 
 }
     
-console.log(listOfGuesses)
+//console.log(listOfGuesses)
 
 
   return (
     <div className="App">
       <header className="App-header">
+        <Title></Title>
         <SearchBar submitFunction={handleSearch}></SearchBar>
     
 
@@ -83,9 +84,7 @@ console.log(listOfGuesses)
 
 
         
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
+       
         <p>
           {correctAnswer}
           {spellNames.results[correctAnswer].index}

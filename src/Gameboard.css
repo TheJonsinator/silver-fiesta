@@ -8,7 +8,7 @@
 
 }
 .headline{
-    border:3px solid;
-    border-color:blue;
-    
+
+  font-size: large;
+  width: 100%;  
 }

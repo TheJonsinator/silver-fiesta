@@ -12,7 +12,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
           queryKey:["spellData",indexName],
           queryFn:()=>get(indexName),});
 
-   
+   //Det skal selges
     
     const {data:correctAnswerData,isLoading:isLoading1,error:error1}= useQuery({
         queryKey:["correctAnswerData", correctAnswerName],
@@ -35,6 +35,8 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
     
            const wantedCats=["casting_time","level","range","damage","classes","components","concentration","school"]
 
+
+           console.log(listOfAllNames)
 
 
            //This is how the searched spell values are decided

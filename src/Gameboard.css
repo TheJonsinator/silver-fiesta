@@ -1,11 +1,12 @@
 .Gameboard{
     display: flex;
     border: 3px solid;
-    border-color: green;
+    border-color: rgb(168, 176, 168);
     border-radius:10px;
     margin:10px;
     padding:1.5px;
     min-width: 80%;
+    box-shadow: rgba(122, 122, 198, 0.2) 10px 7px 9px 0px;
 
 }
 .headline{

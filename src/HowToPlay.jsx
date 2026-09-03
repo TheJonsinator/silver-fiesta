@@ -13,6 +13,7 @@ export default function HowToPlay(){
    <div className={isHidden?"hidden":"visible"}>
    <p>By process of elimination, guess the correct spell. For each correct attribute, you will get a green card.</p>
    <p>7 Greens=Win</p>
+   <p>Try Fireball, inflict wounds or lightning bolt</p>
    </div>
     </div>
     </>

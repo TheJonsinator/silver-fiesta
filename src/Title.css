@@ -1,20 +1,19 @@
 h1{
-     text-align: center;
+  text-align: center;
   font-family: 'Oswald', Helvetica, sans-serif;
   font-size: 80px;
   transform: skewY(-10deg);
   letter-spacing: 4px;
   word-spacing: -8px;
-  color: rgb(255, 89, 59);
+  color: rgb(35, 112, 5);
   text-shadow: 
-    -1px -1px 0 firebrick,
-    -2px -2px 0 firebrick,
-    -3px -3px 0 firebrick,
-    -4px -4px 0 firebrick,
-    -5px -5px 0 firebrick,
-    -6px -6px 0 firebrick,
-    -7px -7px 0 firebrick,
-    -8px -8px 0 firebrick,
-    -30px 20px 40px dimgrey
-    color:red;
+    -1px -1px 0 rgb(63, 178, 34),
+    -2px -2px 0 rgb(63, 178, 34),
+    -3px -3px 0 rgb(63, 178, 34),
+    -4px -4px 0 rgb(63, 178, 34),
+    -5px -5px 0 rgb(63, 178, 34),
+    -6px -6px 0 rgb(63, 178, 34),
+    -7px -7px 0 rgb(63, 178, 34),
+    -8px -8px 0 rgb(63, 178, 34),
+    -30px 20px 40px dimgrey;
 }

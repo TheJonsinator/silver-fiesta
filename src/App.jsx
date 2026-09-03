@@ -5,6 +5,7 @@ import { useEffect, useState,useId } from 'react';
 import {useQuery} from "@tanstack/react-query";
 import SearchBar from "./SearchBar";
 import Title from "./Title.jsx";
+import HowToPlay from "./HowToPlay.jsx";
 
 
 
@@ -69,6 +70,7 @@ function handleSearch(e){
   return (
     <div className="App">
       <header className="App-header">
+        <HowToPlay></HowToPlay>
         <Title></Title>
         </header>
         <main>

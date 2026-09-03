@@ -1,0 +1,31 @@
+.playPopUp{
+    height:40px;
+    width:100px;
+   
+    position: fixed;
+    left:10px;
+    top:10px;
+
+}
+
+.playPopUp button{
+    
+    border-radius:7px;
+    background:grey;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow:5px 8px 16px rgba(0,0,0,0.3) ;
+}
+
+
+.hidden{
+   display:none;
+}
+.visible{
+    color:black;
+    background-color: bisque;
+    border-radius: 5px;
+    margin-top:20px;
+    display:block;
+    border:solid black 2px;
+    box-shadow:5px 8px 16px rgba(0,0,0,0.3) ;
+}

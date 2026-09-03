@@ -12,7 +12,7 @@ p{
     border: 2px solid black;
     border-radius: 5px;
     background-color: azure;
-    color: blue;
+    color:black;
 }
 
 
@@ -51,6 +51,7 @@ p{
 
 .front{
     background:blue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .back{

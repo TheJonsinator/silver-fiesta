@@ -5,10 +5,12 @@
     position: fixed;
     left:10px;
     top:10px;
+    position: absolute;
 
 }
 
 .playPopUp button{
+    
     
     border-radius:7px;
     background:grey;
@@ -31,4 +33,5 @@
     border:solid black 2px;
     box-shadow:5px 8px 16px rgba(0,0,0,0.3) ;
     width:200px;
+    z-index: 1000;
 }

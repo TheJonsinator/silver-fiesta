@@ -11,7 +11,9 @@ export default function HowToPlay(){
     <div className="playPopUp">
    <button onClick= {handleShow}>How to play</button>
    <div className={isHidden?"hidden":"visible"}>
-   <p>By process of elimination, guess the correct spell. For each correct attribute, you will get a green card.</p></div>
+   <p>By process of elimination, guess the correct spell. For each correct attribute, you will get a green card.</p>
+   <p>7 Greens=Win</p>
+   </div>
     </div>
     </>
 }

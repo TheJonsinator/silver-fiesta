@@ -5,6 +5,7 @@ p{
     word-wrap:break-word;
     overflow-wrap:break-word;
     font-size: clamp(10px,2vw,15px);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 

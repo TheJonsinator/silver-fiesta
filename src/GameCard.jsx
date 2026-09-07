@@ -37,7 +37,7 @@ export default function GameCard({cardValue,compareValue,timeValue}){
         </div>
 
         <div className={`side back ${compareValue}`}>
-            <p>{cardValue}</p>
+            <p>{cardValue==="Level 0"?"Cantrip":cardValue}</p>
         
         </div>
         </div>

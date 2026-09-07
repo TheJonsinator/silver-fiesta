@@ -5,6 +5,13 @@ import {useState,useEffect,useId} from "react";
 export default function GameCard({cardValue,compareValue,timeValue}){
     const [isFlipped,setIsFlipped]=useState(false);
     const id=useId();
+    const compareEmojis={
+        Identical:"=",
+        Lower:"^",
+        Higher:"V",
+        Partial:"///",
+        Wrong:"XXX"
+    }
 
     useEffect(()=>{
             
@@ -19,12 +26,12 @@ export default function GameCard({cardValue,compareValue,timeValue}){
 
     return <>
     <div className="GameCardTotal">
-    <div className="GameCardTop">
+   {/* <div className="GameCardTop">
         <p>{compareValue}</p>
 
     
 
-    </div>
+    </div>*/}
   
 
 
@@ -38,6 +45,9 @@ export default function GameCard({cardValue,compareValue,timeValue}){
 
         <div className={`side back ${compareValue}`}>
             <p>{cardValue==="Level 0"?"Cantrip":cardValue}</p>
+            <p>{compareEmojis[compareValue]}</p>
+            
+        
         
         </div>
         </div>

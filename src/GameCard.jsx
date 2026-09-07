@@ -7,9 +7,9 @@ export default function GameCard({cardValue,compareValue,timeValue}){
     const id=useId();
     const compareEmojis={
         Identical:"=",
-        Lower:"^",
-        Higher:"V",
-        Partial:"///",
+        Lower:"▲",
+        Higher:"▼",
+        Partial:"◑",
         Wrong:"XXX"
     }
 

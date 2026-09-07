@@ -32,7 +32,8 @@ export default function GameCard({cardValue,compareValue,timeValue}){
         <div className="card-container">
         <div key={id} className={`card ${isFlipped ? "flipped" : ""}`}>
         <div className="side front">
-            <p>Baksiden</p>
+            <img src="https://cdn.pixabay.com/photo/2022/02/23/20/25/card-7031432_1280.png"></img>
+            
         </div>
 
         <div className={`side back ${compareValue}`}>

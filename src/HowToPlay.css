@@ -19,7 +19,9 @@
     color:aliceblue;
     width:200px ;
 }
-
+.playPopUp button:hover{
+    background-color: rgb(58, 51, 51);
+}
 
 .hidden{
    display:none;

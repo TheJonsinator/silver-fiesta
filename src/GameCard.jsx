@@ -10,7 +10,7 @@ export default function GameCard({cardValue,compareValue,timeValue}){
         Lower:"▲",
         Higher:"▼",
         Partial:"◑",
-        Wrong:"XXX"
+        Wrong:"X"
     }
 
     useEffect(()=>{

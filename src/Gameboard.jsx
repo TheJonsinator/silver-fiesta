@@ -259,7 +259,7 @@ export default function GameBoard({indexName,correctAnswerName,listOfAllNames}){
 
     return(<>
     <div className="headline">
-         <h4>{indexName}</h4>
+         <h4>{indexName.charAt(0).toUpperCase()+indexName.slice(1)}</h4>
          
      </div>
   

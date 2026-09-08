@@ -73,34 +73,35 @@
 }
 
 .Identical{
-    background-color: green;
+    background-image: radial-gradient(rgb(4, 200, 4),rgb(7, 92, 2));
+
      
 }
 
 
 
 .Wrong{
-    background-color: red;
+    background-image: radial-gradient(rgb(253, 24, 24),rgb(128, 0, 0));
     
    
 }
 
 .Higher{
-    background-color: red;
+   background-image: radial-gradient(rgb(253, 24, 24),rgb(128, 0, 0));
    
     
 }
 
 
 .Lower{
-    background-color: red;
+    background-image: radial-gradient(rgb(253, 24, 24),rgb(128, 0, 0));
 
    
 }
 
 
 .Partial{
-    background-color: yellow;
+    background-image: radial-gradient(rgb(253, 249, 24),rgb(161, 135, 1));
     
       
 }
